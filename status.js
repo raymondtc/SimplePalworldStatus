@@ -72,7 +72,7 @@ const playerData = (res, str) => {
     let players = [];
     playerData.forEach((element, index) => {
         if (index > 0) {
-            players.push(element.toString().split(",")[0]);
+            players.push(element.toString());
         }
     })
     //Write count of players
