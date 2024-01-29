@@ -2,13 +2,13 @@ const express = require('express');
 const Rcon = require('rcon');
 
 const app = express();
-const port = 8000; //Port to access this status page
+const port = process.env.STATUS_PORT || 8000; //Port to access this status page
 
 //connection info
 const palWorld = {}
-palWorld.host = "localhost";    //Hostname or IP for Palworld Server
+palWorld.host = process.env.STATUS_HOST || "localhost";    //Hostname or IP for Palworld Server
 palWorld.port = 25575;          //RCONPort
-palWorld.password = "password"; //AdminPassword
+palWorld.password = process.env.STATUS_PASSWORD || "password"; //AdminPassword
 
 //Messages
 const msg = {};
@@ -16,8 +16,8 @@ msg.statusMessage = "Pal Server Status: ";
 msg.up = "UP";
 msg.down = "DOWN";
 msg.line = "--------------------------------------------------";
-msg.contact = "Contact <Who should check on the server>";
-msg.connectInfo = "Connection information: <Hostname or IP with port information>";
+msg.contact = process.env.STAUTS_CONTACT || "Contact <Who should check on the server>";
+msg.connectInfo = process.env.STAUTS_CONNECT_INFO || "Connection information: <Hostname or IP with port information>";
 msg.playerCount = "Current Player Count: ";
 msg.bullet = " -- ";
 msg.newLine = "\n";
