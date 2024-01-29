@@ -1,4 +1,4 @@
-name: Build and Push Frp
+name: Build and Push
 on:
   push:
     branches:    
@@ -25,10 +25,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and Push Frps
+      - name: Build and Push
         uses: docker/build-push-action@v2
         with:
           context: .
           tags: |
-            ghcr.io/raymondtc/SimplePalworldStatus:latest
+            ghcr.io/raymondtc/simple_palworld_status:latest
           push: true
